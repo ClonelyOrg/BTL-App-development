@@ -58,12 +58,8 @@ jobs:
           retention-days: 7
 
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v4 # Khuyên dùng v4 nếu dùng SonarCloud, hoặc giữ v6 nếu server riêng
+        uses: SonarSource/sonarqube-scan-action@v4
         with:
-          # QUAN TRỌNG: Chỉ định thư mục chứa dự án và file properties
           projectBaseDir: CapdeCours
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          # Nếu dùng SonarCloud thì không cần SONAR_HOST_URL
-          # Nếu dùng SonarQube Server riêng thì cần thêm:
-          # SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
